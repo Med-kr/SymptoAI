@@ -12,7 +12,6 @@ class Symptom extends Model
         'severity',
         'description',
         'date_recorded',
-        'note',
         'notes'
     ];
     public function user()

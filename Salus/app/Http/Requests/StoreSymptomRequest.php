@@ -23,12 +23,12 @@ class StoreSymptomRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|string',
             'severity' => 'required|in:mild,moderate,severe',
             'description' => 'nullable|string',
             'date_recorded' => 'required|date',
+            'description' => 'nullable|string',
             'note' => 'nullable|string',
-            'notes' => 'nullable|string',
         ];
     }
 }

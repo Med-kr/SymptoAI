@@ -84,14 +84,12 @@ class SymptomController extends Controller
     public function store(StoreSymptomRequest $request)
     {
         $data = $request->validated();
-        $note = $data['note'] ?? $data['notes'] ?? null;
-
         $symptom = $request->user()->symptoms()->create([
             'name' => $data['name'],
             'severity' => $data['severity'],
             'description' => $data['description'],
             'date_recorded' => $data['date_recorded'],
-            'notes' => $note
+            'note' => $data['note']
         ]);
 
         return response()->json([
@@ -201,8 +199,6 @@ class SymptomController extends Controller
         $symptom = $request->user()->symptoms()->findOrFail($id);
 
         $data = $request->validated();
-        $data['notes'] = $data['note'] ?? $data['notes'] ?? null;
-        unset($data['note']);
         /*([
             'name' => $data['name'],
             'severity' => $data['severity'],
@@ -243,7 +239,7 @@ class SymptomController extends Controller
         ]
     )]
 
-    public function destroy(Request $request, $id)
+    public function destroy(StoreSymptomRequest $request, $id)
     {
         $symptom = $request->user()->symptoms()->findOrFail($id);
 
