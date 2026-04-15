@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDoctors, searchDoctors } from "../services/doctorService";
+import { getDoctors, searchDoctors } from "../assets/services/doctorsService";
 import DoctorCard from "../components/DoctorCard";
 
 export default function Doctors() {

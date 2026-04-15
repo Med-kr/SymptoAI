@@ -1,6 +1,4 @@
-import api from "./api";
-
-//  Liste des médecins
+import api from "../../api/api";//  Liste des médecins
 export const getDoctors = () => {
   return api.get("/doctors");
 };
