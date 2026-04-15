@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAppointments, deleteAppointment } from "../../services/appointments";
+import { Link } from "react-router-dom";
 
 const AppointmentsList = () => {
   const [appointments, setAppointments] = useState([]);
@@ -33,6 +34,10 @@ const AppointmentsList = () => {
           >
             Cancel
           </button>
+
+            <Link to="/appointments/create" className="bg-blue-500 text-white px-4 py-2 rounded">
+                Add Appointment
+            </Link>
         </div>
       ))}
     </div>
